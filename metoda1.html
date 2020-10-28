@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Search | LinkedIn</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+
+    <style>
+        tr{
+            line-height: 25px;
+            min-height: 25px;
+            height: 75px;
+        }
+    </style>
+</head>
+<body>
+    <label for="files">Wybierz 1 plik tekstowy zawierający nazwy firm (po 1 na linijkę)</label><br>
+    <input type="file" name="files" id="input"><br><br>
+
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-sm-12" style="overflow: auto;">
+                <table class="table">
+                    <thead class="thead-dark">
+                        <tr>
+                            <th scope="col">#</th>
+                            <th scope="col">Adres URL</th>
+                            <th scope="col">Firmy</th>
+                        </tr>
+                    </thead>
+                    <tbody id="data-body">
+                        
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+    <script src="metoda1.js"></script>
+
+</body>
+</html>
