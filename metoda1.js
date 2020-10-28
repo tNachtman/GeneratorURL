@@ -1,4 +1,4 @@
-// Mechanizm generujący dane
+// FUNKCJE GENERUJĄCE DANE
 let counter = 0;
 
 const GenerujURL = (firma1, firma2, firma3, firma4, firma5, firma6) => {
@@ -17,17 +17,13 @@ const GenerujDane = (firma1, firma2, firma3, firma4, firma5, firma6) => {
     $('#data-body').append(`<tr><th scope="row">${counter}</th><td><a href="${adres_linku}" target="_blank">Kopiuj link</a></td><td>${firmy}</td></tr>`);
 }
 
-// GenerujDane("24 Tax and Consulting ltd", "Aldi UK", "Allegis Group", "Altrad Services", "Altrad Services UK", "Amaris Hospitality");
-// GenerujDane("24 Tax and Consulting ltd", "Aldi UK", "Allegis Group", "Altrad Services", "Altrad Services UK", "Amaris Hospitality");
 
-
-// KOD CZYTAJĄCY PLIKI TEKSTOWE
+// KOD OBSŁUGUJĄCY PLIKI TEKSTOWE
 
 let input = $('#input');
 
 input.on('change', () => {
     let files = input[0].files;
-    // console.log(input[0].files); // Debugowanie
 
     if(files.length == 0) return;
 
@@ -50,7 +46,6 @@ input.on('change', () => {
             counter++;
             let firmy = "";
             let nazwy_firm = "";
-            // let url = `linkedin.com/search/results/people/?company="${firma1}"OR"${firma2}"OR"${firma3}"OR"${firma4}"OR"${firma5}"OR"${firma6}"&origin=FACETED_SEARCH`;
             for(let i=1; i<=(lines.length%6); i++){
                 firmy += `(${lines[lines.length-i]})OR`;
                 nazwy_firm += `${lines[lines.length-i]}, `;
