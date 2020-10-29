@@ -37,7 +37,6 @@ input.on('change', () => {
 
         //Wykonuje się biorąc po 6 firm
         for(let i=0; i<(lines.length - (lines.length%6)); i+=6){
-            counter++;
             GenerujDane(lines[i], lines[i+1], lines[i+2], lines[i+3], lines[i+4], lines[i+5]);
         }
 
