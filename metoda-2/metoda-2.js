@@ -59,12 +59,12 @@ input.on('change', () => {
         for(let j=0; j<(lines.length - (lines.length%po_ile_firm)); j+=po_ile_firm){
             firmy = []; // zerujemy listę poprzednich firm
             company_start = j+1; // zmieniamy numerację startową na obecną
-            for(let i=0; i<po_ile_firm; i++){ 
+            for(let i=j; i<j+po_ile_firm; i++){ 
 
                 // Tablica firm przesyłana do funkcji
                 firmy.push(lines[i].split('&').join('%26')); // trzeba zastąpić wszystkie '&' kodem URL
             }
-
+            // console.log(firmy); // W razie potrzeby włączyć można
             GenerujDane(firmy); // Generujemy dane i wyświetlamy na stronie
         }
 
@@ -110,7 +110,7 @@ const Generator = () => {
         for(let j=0; j<(lines.length - (lines.length%po_ile_firm)); j+=po_ile_firm){
             firmy = []; // zerujemy listę poprzednich firm
             company_start = j+1; // zmieniamy numerację startową na obecną
-            for(let i=0; i<po_ile_firm; i++){ 
+            for(let i=j; i<j+po_ile_firm; i++){ 
 
                 // Tablica firm przesyłana do funkcji
                 firmy.push(lines[i].split('&').join('%26')); // trzeba zastąpić wszystkie '&' kodem URL
