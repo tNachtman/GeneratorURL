@@ -8,6 +8,7 @@ let company_start = 1;
 const GenerujURL = (firmy) => {
     let company_query = ``;
 
+    //lepiej tu zastosować funkcję implodującą
     for(let i=0; i<firmy.length; i++){
         company_query += `%22${firmy[i]}%22OR`;
         company_counter++;
@@ -15,7 +16,7 @@ const GenerujURL = (firmy) => {
 
     // Usuwam tego ostatniego zbędnego OR'a
     company_query = company_query.slice(0, -2);
-    
+    //przydałaby się możliwość konfiguracji w formularzu bazowego URLa tak aby można było wcześniej prekonfigurować wyszukiwanie np. dodając Państwa.
     let url = `https://www.linkedin.com/sales/search/company?doFetchHeroCard=false&keywords=${company_query}&logHistory=false`;
     return url;
 }
