@@ -1,4 +1,4 @@
-// Zbieranie danych z HTMLa
+// Zbieranie danych z HTMLa - Dla przyszłych (może?) funkcji aplikacji
 const region = [];
 const stanowisko = [];
 const keywords = [];
@@ -68,12 +68,24 @@ let company_counter = 0;
 let company_start = 1;
 
 const GenerujURL = (firmy) => {
-    let company_query = firmy.join('%22OR%22');
+    const company_checkbox = $('#checkbox_company').prop('checked');
+    const keywords_checkbox = $('#checkbox_keywords').prop('checked');
+    
+    let url = `${$('#search_link').val()}`;
 
-    company_query = company_query.split(' ').join('%20');
-    // let url = `${$('#search_link').val()}&companyIncluded=${company_query}&companyTimeScope=CURRENT`;
-    // console.log(url);
-    let url = `${$('#search_link').val()}&keywords=%22${company_query}%22`;
+    if(keywords_checkbox){
+        let company_query = firmy.join('%22OR%22');
+        company_query = company_query.split(' ').join('%20');
+        
+        url += `&keywords=%22${company_query}%22`;
+    }
+    if(company_checkbox){
+        let company_query = firmy.join('%2C');
+        company_query = company_query.split(' ').join('%20');
+
+        url += `&companyIncluded=${company_query}&companyTimeScope=CURRENT`;
+    }
+
     return url;
 }
 

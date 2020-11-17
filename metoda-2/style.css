@@ -40,3 +40,16 @@ tr{
 .maxwidth{
     width: 80%;
 }
+
+.btn-disabled{
+    border-color: #aaa;
+    outline: none;
+    color: #aaa;
+}
+
+.btn-disabled:hover{
+    border-color: #aaa;
+    outline: none;
+    background-color: #fff;
+    color: #aaa;
+}

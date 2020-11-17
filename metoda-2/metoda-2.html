@@ -36,6 +36,9 @@
                         <div class="mt-3 mb-2">
                             <!-- <label for="ile_firm">Po ile firm: </label>
                             <input type="number" name="ile_firm" id="po_ile_firm" value="45"> -->
+                            <label><strong>W które pole wstawić firmy:<sup>*</sup></strong></label><br>
+                            <input type="checkbox" id="checkbox_company" checked> Company
+                            <input type="checkbox" id="checkbox_keywords"> Keywords
                         </div>
                         <h5>Link wyszukiwania (SalesNav):</h5>
                         <div class="input-group justify-content-center align-center">
@@ -43,6 +46,7 @@
                         </div>
                         <button type="button" class="mt-2 btn btn-dark" id="licz">Generuj</button>
                     </form>
+                    <sub><strong>*</strong><em> Uwaga: Dane uzupełnione w zaznaczonym polu zostaną zastąpione firmami z pliku</em></sub>
                 </div>
             </div>
 
@@ -50,48 +54,53 @@
                 
             </div>
 
-            <div class="col-sm-12 pt-3">
-                <h5>Wyszukaj:</h5>
-                <div class="d-inline">
-                    <input type="radio" name="whatss" id="search_people" value="osoby" checked>
-                    <label for="search_people">Osoby</label>
+            <div class="col-sm-12 pt-3 pb-3">
+                <a href="#extra" class="btn btn-outline-dark btn-disabled" data-toggle="collapse" role="button">Przyszłe funkcje</a>
+                <div class="collapse col-12" id="extra">
+                    <div class="col-sm-12 pt-3">
+                        <h5>Wyszukaj:</h5>
+                        <div class="d-inline">
+                            <input type="radio" name="whatss" id="search_people" value="osoby" checked>
+                            <label for="search_people">Osoby</label>
+                        </div>
+                        <div class="d-inline">
+                            <input type="radio" name="whatss" id="search_companies" value="firmy">
+                            <label for="search_companies">Firmy</label>
+                        </div>
+                    </div>
+        
+                    <div class="col-sm-12 col-md-6 pt-3 pb-3">
+                        <h5>Słowa kluczowe:</h5>
+                        <div id="keywords" class="input-group">
+                            <input type="text" data-role="tagsinput" value="Działalność gospodarcza" class="bootstrap-tagsinput form-control">
+                        </div>
+                    </div>
+        
+                    <div class="col-sm-12 col-md-6 pt-3 pb-3">
+                        <h5>Stanowiska:</h5>
+                        <div id="stanowisko" class="input-group">
+                            <input type="text" data-role="tagsinput" value="CEO,VP" class="bootstrap-tagsinput form-control">
+                        </div>
+                    </div>
+        
+                    <div class="col-sm-12 col-md-6 pt-3 pb-3">
+                        <h5>Region:</h5>
+                        <div id="region" class="input-group">
+                            <input type="text" data-role="tagsinput" value="Polska,Anglia" class="bootstrap-tagsinput form-control">
+                        </div>
+                    </div>
+        
+                    <div class="col-sm-12 col-md-6 pt-3 pb-3">
+                        <h5>Nazwy firm (lub ich ID):</h5>
+                        <div id="company_names" class="input-group">
+                            <textarea data-role="tagsinput" value="" class="bootstrap-tagsinput form-control"></textarea>
+                        </div>
+                    </div>
+        
+                    <div class="col-sm-12 col-md-3 pt-3 pb-3 align-center">
+                        <button id="generuj" class="btn btn-outline-dark">Generuj!</button>
+                    </div>
                 </div>
-                <div class="d-inline">
-                    <input type="radio" name="whatss" id="search_companies" value="firmy">
-                    <label for="search_companies">Firmy</label>
-                </div>
-            </div>
-
-            <div class="col-sm-12 col-md-6 pt-3 pb-3">
-                <h5>Słowa kluczowe:</h5>
-                <div id="keywords" class="input-group">
-                    <input type="text" data-role="tagsinput" value="Działalność gospodarcza" class="bootstrap-tagsinput form-control">
-                </div>
-            </div>
-
-            <div class="col-sm-12 col-md-6 pt-3 pb-3">
-                <h5>Stanowiska:</h5>
-                <div id="stanowisko" class="input-group">
-                    <input type="text" data-role="tagsinput" value="CEO,VP" class="bootstrap-tagsinput form-control">
-                </div>
-            </div>
-
-            <div class="col-sm-12 col-md-6 pt-3 pb-3">
-                <h5>Region:</h5>
-                <div id="region" class="input-group">
-                    <input type="text" data-role="tagsinput" value="Polska,Anglia" class="bootstrap-tagsinput form-control">
-                </div>
-            </div>
-
-            <div class="col-sm-12 col-md-6 pt-3 pb-3">
-                <h5>Nazwy firm (lub ich ID):</h5>
-                <div id="company_names" class="input-group">
-                    <textarea data-role="tagsinput" value="" class="bootstrap-tagsinput form-control"></textarea>
-                </div>
-            </div>
-
-            <div class="col-sm-12 col-md-3 pt-3 pb-3 align-center">
-                <button id="generuj" class="btn btn-outline-dark">Generuj!</button>
             </div>
 
             <!-- TABELA Z WYNIKAMI -->
