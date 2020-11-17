@@ -36,3 +36,7 @@ tr{
 .align-center{
     text-align: center;
 }
+
+.maxwidth{
+    width: 80%;
+}
