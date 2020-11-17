@@ -68,11 +68,12 @@ let company_counter = 0;
 let company_start = 1;
 
 const GenerujURL = (firmy) => {
-    let company_query = firmy.join('%2C');
+    let company_query = firmy.join('%22OR%22');
 
     company_query = company_query.split(' ').join('%20');
-    let url = `${$('#search_link').val()}&companyIncluded=${company_query}&companyTimeScope=CURRENT`;
+    // let url = `${$('#search_link').val()}&companyIncluded=${company_query}&companyTimeScope=CURRENT`;
     // console.log(url);
+    let url = `${$('#search_link').val()}&keywords=%22${company_query}%22`;
     return url;
 }
 
@@ -119,7 +120,7 @@ const GenerujZPliku = () => {
             let wszystkie_firmy = [];
 
             // Skopiuj nazwy firm do tablicy "wszystkie_firmy", przy okazji zastąp wszystkie '&' -> '%26'
-            // Jednocześnie trzeba zastąpić wszystkie przecinki czymś innym (użyłem tutaj spacji)
+            // Jednocześnie trzeba zastąpić wszystkie przecinki czymś innym (użyłem tutaj spacji, która później i tak zostanie przekształcona)
             for(let i=0; i<lines.length; i++){
                 wszystkie_firmy.push(lines[i].split('&').join('%26').split(',').join(' '));
             }
@@ -156,34 +157,6 @@ const GenerujZPliku = () => {
 
             // Teraz generujemy url
             GenerujDane(aktualne_firmy);
-            
-            // // UWAGA: ilość znaków w zapytaniu nie może przekroczyć 1000
-            // let po_ile_firm = parseInt($('#po_ile_firm').val()); // pobierz ile firm brać pod uwagę w jednym zapytaniu ze strony (domyślnie 45)
-    
-            // for(let j=0; j<(lines.length - (lines.length%po_ile_firm)); j+=po_ile_firm){
-            //     firmy = []; // zerujemy listę poprzednich firm
-            //     company_start = j+1; // zmieniamy numerację startową na obecną
-            //     company_counter = j+po_ile_firm;// zmieniamy numerację końcową na ostatnią
-            //     for(let i=j; i<j+po_ile_firm; i++){ 
-    
-            //         // Tablica firm przesyłana do funkcji
-            //         firmy.push(lines[i].split('&').join('%26')); // trzeba zastąpić wszystkie '&' kodem URL
-            //     }
-    
-            //     GenerujDane(firmy); // Generujemy dane i wyświetlamy na stronie
-            // }
-    
-            // // Generujemy pozostałe firmy (o ile istnieją)
-            // if(lines.length%po_ile_firm != 0){
-            //     firmy = [];
-            //     company_start += po_ile_firm;
-                
-            //     for(let i=company_start-1; i<lines.length; i++){
-            //         firmy.push(lines[i].split('&').join('%26'));
-            //         company_counter = i+1;
-            //     }
-            //     GenerujDane(firmy);
-            // }
         };
     
         reader.onerror = (e) => alert(e.target.error.name);
