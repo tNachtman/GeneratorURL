@@ -79,11 +79,17 @@ const GenerujURL = (firmy) => {
         
         url += `&keywords=%22${company_query}%22`;
     }
+    // if(company_checkbox){
+    //     let company_query = firmy.join('%2C');
+    //     company_query = company_query.split(' ').join('%20');
+
+    //     url += `&companyIncluded=${company_query}&companyTimeScope=CURRENT`;
+    // }
     if(company_checkbox){
-        let company_query = firmy.join('%2C');
+        let company_query = firmy.join('%2522OR%2522');
         company_query = company_query.split(' ').join('%20');
 
-        url += `&companyIncluded=${company_query}&companyTimeScope=CURRENT`;
+        url += `&companyIncluded=%2522${company_query}%2522&companyTimeScope=CURRENT`;
     }
 
     return url;
@@ -143,13 +149,14 @@ const GenerujZPliku = () => {
             for(let i=0; i<wszystkie_firmy.length; i++){
                 company_counter = i+1;
                 company_string += wszystkie_firmy[i];
-                converted_company_string = company_string.split(' ').join('%20'); // zamień spacje na %20
+                converted_company_string = company_string.split(' ltd').join('').split(' plc').join('').split(' PLC').join('').split(' ., Ltd').join('').split(' Plc.').join('').split(' Ltd').join('').split(' LLP').join('').split(' ').join('%20'); // zamień spacje na %20
                 
                 // Dodaj 8 do długości stringa bo pomiędzy nazwami znajdzie się jeszcze %22OR%22
                 if((converted_company_string.length + 8) >= 1000){
                     console.log(`${converted_company_string.length + 8} to więcej niż 1000!`);
 
                     // OK, przekroczone 1000 znaków więc wygeneruj link a następnie kontynuuj kolejne firmy
+                    console.log(aktualne_firmy);
                     GenerujDane(aktualne_firmy);
 
                     // Przed wystartowaniem dalej wyzeruj listę firm
@@ -162,7 +169,7 @@ const GenerujZPliku = () => {
 
                     // Kontynuuj generowanie firm
                 }else{
-                    aktualne_firmy.push(wszystkie_firmy[i].split(' ').join('%20'));
+                    aktualne_firmy.push(wszystkie_firmy[i].split(' ltd').join('').split(' plc').join('').split(' PLC').join('').split(' ., Ltd').join('').split(' Plc.').join('').split(' Ltd').join('').split(' LLP').join('').split(' ').join('%20'));
                 }
             }
             console.log(aktualne_firmy);
