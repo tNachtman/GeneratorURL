@@ -104,7 +104,7 @@ const GenerujDane = (firmy) => {
     let nazwy_firm = GenerujNazwyFirm(firmy);
     counter++;
     $('#data-body').append(`<tr><th scope="row">${counter}</th><td><a class="btn btn-success" href="${adres_linku}" target="_blank">${counter}</a></td><td>${nazwy_firm}</td></tr>`);
-    $('#wyniki_textarea').val($('#wyniki_textarea').val()+adres_linku+'\r\n\r\n');
+    $('#wyniki_textarea').val($('#wyniki_textarea').val()+adres_linku+'\r\n');
 }
 
 
