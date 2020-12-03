@@ -1,0 +1,55 @@
+tr{
+    line-height: 25px;
+    min-height: 25px;
+    height: 75px;
+}
+
+.tag{
+    background-color: #5bc0de;
+}
+
+.label {
+    display: inline;
+    padding: .2em .6em .3em;
+    font-size: 75%;
+    font-weight: bold;
+    line-height: 1;
+    color: #fff;
+    text-align: center;
+    white-space: nowrap;
+    vertical-align: baseline;
+    border-radius: .25em;
+}
+
+.input-group .bootstrap-tagsinput {
+    border-top-right-radius: 0;
+    border-bottom-right-radius: 0;
+    width: 100%
+}
+.input-group-btn {
+    height: 0px;
+}
+.input-group-btn .btn {
+    height: 100%;
+}
+
+.align-center{
+    text-align: center;
+}
+
+.maxwidth{
+    width: 80%;
+}
+
+.btn-disabled{
+    border-color: #aaa;
+    outline: none;
+    color: #aaa;
+}
+
+.btn-disabled:hover{
+    border-color: #aaa;
+    outline: none;
+    background-color: #fff;
+    color: #aaa;
+}
