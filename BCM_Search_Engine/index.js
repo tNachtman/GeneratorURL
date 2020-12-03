@@ -1,4 +1,3 @@
-
 const default_url = "https://www.linkedin.com/sales/search/people?doFetchHeroCard=false&geoIncluded=105072130";
 
 const getData = () => {
@@ -15,38 +14,6 @@ const getData = () => {
     FUNKCJE GENERUJĄCE DANE
 */
 let counter = 0;
-
-const GenerujURL = (firmy) => {
-    const company_checkbox = $('#checkbox_company').prop('checked');
-    const keywords_checkbox = $('#checkbox_keywords').prop('checked');
-    
-    let url = `${$('#search_link').val()}`;
-
-    if(keywords_checkbox){
-        let company_query = firmy.join('%22OR%22');
-        company_query = company_query.split(' ').join('%20');
-        
-        url += `&keywords=%22${company_query}%22`;
-    }
-    // if(company_checkbox){
-    //     let company_query = firmy.join('%2C');
-    //     company_query = company_query.split(' ').join('%20');
-
-    //     url += `&companyIncluded=${company_query}&companyTimeScope=CURRENT`;
-    // }
-    if(company_checkbox){
-        let company_query = firmy.join('%2522OR%2522');
-        company_query = company_query.split(' ').join('%20');
-
-        url += `&companyIncluded=%2522${company_query}%2522&companyTimeScope=CURRENT`;
-    }
-
-    return url;
-}
-
-const GenerujNazwyFirm = (firmy) => {
-    return `Numery ${company_start} - ${company_counter}`;
-}
 
 const GenerujDane = (url, simple_url, dane) => {
     counter++;
@@ -68,6 +35,7 @@ const GenerujZPliku = () => {
     let company_col = $('#company_col').val();
     let link = $('#search_link').val();
     let first_row_names = $('#firstrow').prop('checked') ? 1 : 0;
+    counter = 0;
 
     if(link === "" || link === undefined || link.replace(/\s+/g, '') === ""){
         link = $('#search_link').val(default_url);
